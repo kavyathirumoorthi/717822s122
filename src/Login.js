@@ -1,20 +1,23 @@
-import React, { useState } from 'react';
-import { loginUser } from './Api';
-
+// Login.js
+import React, { useState } from "react";
 
 const Login = ({ setToken }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
+  // Handle login
   const handleLogin = async (e) => {
     e.preventDefault();
-    const data = await loginUser(username, password);
 
-    if (data && data.token) {
-      setToken(data.token);
+    // Hardcoded valid credentials
+    const validUsername = "kavya";
+    const validPassword = "123";
+
+    if (username === validUsername && password === validPassword) {
+      setToken("dummy-token-123"); 
     } else {
-      setError('Invalid username or password');
+      setError("Invalid username or password");
     }
   };
 
